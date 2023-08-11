@@ -1,0 +1,20 @@
+{
+  "name": "cognito-auth-boilerplate",
+  "author": "Thom Trentelman",
+  "version": "0.0.1",
+  "description": "Barebone boilerplate for using ",
+  "private": true,
+  "workspaces": [
+    "packages/*"
+  ],
+  "scripts": {
+    "compile": "lerna run compile",
+    "dev": "lerna run dev --stream --concurrency=2",
+    "stop:ws": "powershell.exe -ExecutionPolicy Bypass -File kill-all.ps1"
+  },
+  "keywords": [],
+  "license": "ISC",
+  "devDependencies": {
+    "lerna": "^7.1.1"
+  }
+}

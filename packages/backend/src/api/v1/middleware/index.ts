@@ -1,0 +1,1 @@
+export { globalAuth } from "./globalAuth";
