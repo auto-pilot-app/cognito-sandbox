@@ -12,9 +12,11 @@ app.enable("trust proxy");
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-app.use("/v1", v1Router);
+app.use("/v1", v1Router); // This is the only important entry from this file
 
 app.get("/health", (req, res) => res.sendStatus(200));
+
+app.use("*", (req, res) => res.status(404).json({ message: "Method not found" }));
 
 app.use((err: any, req: any, res: any, next: any) => {
   console.error(err.message, { description: err.message ?? "", stack: err.stack });

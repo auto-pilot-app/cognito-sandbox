@@ -7,16 +7,14 @@ export async function getCognitoUser(AccessToken: string): Promise<Record<string
 
   if (!cognitoUser) throw new Error("NO_PROFILE");
 
-  const user = { userName: cognitoUser.Username as string };
-
-  if (!cognitoUser.UserAttributes) return user;
+  if (!cognitoUser.UserAttributes) return { sub: cognitoUser.Username };
 
   // Map attributes to object
-  const attributes: Record<string, string> = cognitoUser.UserAttributes.reduce(
+  const user: Record<string, string> = cognitoUser.UserAttributes.reduce(
     (acc, { Name, Value }) => (acc = { ...acc, [Name as string]: Value }),
     {}
   );
 
   // Return cognito user with attributes as key value pairs
-  return { ...user, ...attributes };
+  return user;
 }

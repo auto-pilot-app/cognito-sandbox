@@ -7,6 +7,6 @@ const router = express.Router();
 
 router.use(globalAuth);
 
-router.get("/", getUser);
+router.get("/", getUser); // We only have a simple get method
 
 export default router;
