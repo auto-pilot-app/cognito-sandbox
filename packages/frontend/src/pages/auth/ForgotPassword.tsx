@@ -19,8 +19,8 @@ function ForgotPassword() {
     const email = formData.get("email") as string;
 
     try {
-      await Auth.forgotPassword(email);
-      navigate(`/confirm-password?email=${email}`);
+      await Auth.forgotPassword(email ?? initEmail);
+      navigate(`/confirm-password?email=${email ?? initEmail}`);
     } catch (err) {
       setLoading(false);
       alert(err.message);
@@ -32,8 +32,8 @@ function ForgotPassword() {
       <h2>Reset your password</h2>
 
       <p>
-        To reset your password, enter your email below and submit. An email will be sent to you with instructions about
-        how to complete the process.
+        To reset your password, enter your email below and submit. An email will be sent to you with instructions on how
+        to complete the process.
       </p>
 
       <form onSubmit={handleSubmit}>

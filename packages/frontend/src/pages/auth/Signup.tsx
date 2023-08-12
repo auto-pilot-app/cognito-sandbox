@@ -4,7 +4,7 @@ import { Auth } from "@aws-amplify/auth";
 
 import { GoogleAuthButton } from "@components";
 
-function Register() {
+function Signup() {
   const navigate = useNavigate();
 
   const [loading, setLoading] = useState<boolean>(false);
@@ -78,4 +78,4 @@ function Register() {
   );
 }
 
-export default Register;
+export default Signup;

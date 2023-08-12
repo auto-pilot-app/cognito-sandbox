@@ -1,4 +1,3 @@
-import { Auth } from "@aws-amplify/auth";
 import { api } from "@utils";
 
 /**
@@ -7,6 +6,5 @@ import { api } from "@utils";
  */
 export async function getUser() {
   const { data } = await api.get("/users");
-  console.log(data.payload);
   return data.payload;
 }

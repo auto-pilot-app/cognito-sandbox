@@ -15,13 +15,12 @@ function ConfirmNewPassword() {
     setLoading(true);
 
     const formData = new FormData(e.currentTarget);
-    const email = formData.get("email") as string;
     const code = formData.get("code") as string;
     const password = formData.get("password") as string;
 
     try {
-      await Auth.forgotPasswordSubmit(email, code, password);
-      navigate(`/login?email=${email}`);
+      await Auth.forgotPasswordSubmit(initEmail, code, password);
+      navigate(`/login?email=${initEmail}`);
     } catch (err) {
       alert(err.message);
       setLoading(false);

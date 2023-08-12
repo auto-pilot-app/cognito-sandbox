@@ -16,12 +16,11 @@ function ConfirmSignUp() {
     setLoading(true);
 
     const formData = new FormData(e.currentTarget);
-    const email = formData.get("email") as string;
     const code = formData.get("code") as string;
 
     try {
-      await Auth.confirmSignUp(email, code);
-      navigate(`/login?email=${email}`);
+      await Auth.confirmSignUp(initEmail, code);
+      navigate(`/login?email=${initEmail}`);
     } catch (err) {
       setLoading(false);
       alert(err.message);

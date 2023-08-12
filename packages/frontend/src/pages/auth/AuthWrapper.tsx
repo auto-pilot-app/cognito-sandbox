@@ -23,10 +23,10 @@ function Authentication() {
           <Outlet />
         </main>
         <footer>
-          <a href="#" target="_blank" rel="noreferrer">
+          <a href="#" rel="noreferrer">
             Terms &amp; Conditions
           </a>
-          <a href="#" target="_blank" rel="noreferrer">
+          <a href="#" rel="noreferrer">
             Privacy Statement
           </a>
         </footer>

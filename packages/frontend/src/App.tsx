@@ -9,7 +9,7 @@ import Login from "./pages/auth/Login";
 import LoginCallback from "./pages/auth/LoginCallback";
 import Logout from "./pages/auth/Logout";
 import LogoutCallback from "./pages/auth/LogoutCallback";
-import Register from "./pages/auth/Register";
+import Signup from "./pages/auth/Signup";
 import ConfirmSignUp from "./pages/auth/ConfirmSignUp";
 import ForgotPassword from "./pages/auth/ForgotPassword";
 import ConfirmNewPassword from "./pages/auth/ConfirmNewPassword";
@@ -19,8 +19,10 @@ function App() {
     <Routes>
       {/* IF AUTHENTICATED */}
       <Route path="/" element={<Portal />}>
-        <Route path="/" element={<Redirect />} />
+        {/* This where all your authenticated app routes would go */}
+        <Route path="/" element={<Navigate replace to="/dashboard" />} />
         <Route path="/dashboard" element={<Dashboard />} />
+        <Route path="*" element={<>404 - Page Not Found</>} />
       </Route>
       {/* IF NOT AUTHENTICATED */}
       <Route path="/" element={<AuthWrapper />}>
@@ -29,7 +31,7 @@ function App() {
         <Route path="login/callback" element={<LoginCallback />} />
         <Route path="logout" element={<Logout />} />
         <Route path="logout/callback" element={<LogoutCallback />} />
-        <Route path="register" element={<Register />} />
+        <Route path="signup" element={<Signup />} />
         <Route path="confirm-account" element={<ConfirmSignUp />} />
         <Route path="forgot-password" element={<ForgotPassword />} />
         <Route path="confirm-password" element={<ConfirmNewPassword />} />
@@ -40,9 +42,3 @@ function App() {
 }
 
 export default App;
-
-// I use this component to redirect to other specific pages
-// based on users recent activity.
-const Redirect = () => {
-  return <Navigate replace to="/dashboard" />;
-};

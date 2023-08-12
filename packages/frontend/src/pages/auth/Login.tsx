@@ -46,7 +46,7 @@ function Login() {
 
       <p>
         Don't have an account?{" "}
-        <Link to="/register">
+        <Link to="/signup">
           <strong>Sign Up</strong>
         </Link>
       </p>
