@@ -104,14 +104,23 @@ function Dashboard() {
 
   useEffect(() => {
     fetchUser();
+    (async () => {
+      const resp = await Auth.fetchDevices();
+      console.log(resp);
+    })();
   }, []);
 
   return (
     <div style={{ padding: "2rem" }}>
       <h2>Dashboard</h2>
-      <Link to="/logout">logout</Link>
+
+      <Link to="/logout">
+        <button>Logout</button>
+      </Link>
+
       {loading && <p>Loading...</p>}
       {!loading && !user && <p>Something went wrong fetching the user</p>}
+
       {user && (
         <>
           {/* USER PROFILE */}
@@ -119,10 +128,13 @@ function Dashboard() {
             <h4>Profile</h4>
             <pre>User {JSON.stringify(user, null, 2)}</pre>
           </section>
+
           {/* MFA */}
           <section>
             <h4>SMS MFA</h4>
-            {user.isFederated && <p>Your account is managed by Google</p>}
+
+            {user.isFederated && <blockquote>Your account is managed by Google</blockquote>}
+
             {!user.isFederated && (
               <div className="MFA">
                 <form onSubmit={setPhoneNumber}>
@@ -152,7 +164,9 @@ function Dashboard() {
                 <p>
                   MFA is currently <strong>{user.mfaSetting === "SMS_MFA" ? "enabled" : "disabled"}</strong>
                 </p>
+
                 {user.mfaSetting === "SMS_MFA" && <button onClick={setMFA("NOMFA")}>Disable SMS MFA</button>}
+
                 {user.mfaSetting !== "SMS_MFA" && (
                   <button onClick={setMFA("SMS")} disabled={phoneState !== "VERIFIED"}>
                     Enable SMS MFA

@@ -34,9 +34,10 @@ form {
 blockquote {
   margin: 1rem 0;
   padding: 0.5rem 1rem;
+  width: fit-content;
   color: rgb(50, 50, 50);
   border-radius: 0.25rem;
-  background-color: rgb(230, 230, 230);
+  background-color: rgb(235, 235, 235);
   &.error {
     color: rgb(100, 0, 0);
     background-color: rgb(255, 200, 200);
