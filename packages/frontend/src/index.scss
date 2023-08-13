@@ -8,3 +8,64 @@ body {
   width: 100vw;
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
+
+a:has(> button) {
+  text-decoration: none;
+}
+
+form {
+  margin: 1rem 0;
+  a button {
+    text-decoration: none !important;
+  }
+  & > div:first-child > input:not([type="checkbox"]) {
+    display: block;
+    width: 100%;
+    margin: 0.25rem 0;
+    padding: 0.25rem 0.5rem;
+  }
+  & > div:last-child {
+    display: flex;
+    justify-content: space-between;
+    margin: 1rem 0;
+  }
+}
+
+blockquote {
+  margin: 1rem 0;
+  padding: 0.5rem 1rem;
+  color: rgb(50, 50, 50);
+  border-radius: 0.25rem;
+  background-color: rgb(230, 230, 230);
+  &.error {
+    color: rgb(100, 0, 0);
+    background-color: rgb(255, 200, 200);
+  }
+}
+
+dialog {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  border: none;
+  background-color: rgba(0, 0, 0, 0.2);
+  section {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 2rem;
+    width: 26rem;
+    border-radius: 0.25rem;
+    background: #fff;
+  }
+  header {
+    font-weight: bold;
+  }
+  u {
+    color: darkblue;
+    cursor: pointer;
+  }
+}

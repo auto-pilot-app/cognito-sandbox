@@ -23,26 +23,4 @@
     display: flex;
     justify-content: space-between;
   }
-
-  // Form layout
-  form {
-    margin: 1rem 0;
-    a button {
-      text-decoration: none !important;
-    }
-    & > div:first-child > input:not([type="checkbox"]) {
-      display: block;
-      width: 100%;
-      margin: 0.25rem 0;
-      padding: 0.25rem 0.5rem;
-    }
-    & > div:last-child {
-      display: flex;
-      justify-content: space-between;
-      margin: 1rem 0;
-    }
-  }
-  a:has(> button) {
-    text-decoration: none;
-  }
 }

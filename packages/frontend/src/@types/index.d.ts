@@ -9,3 +9,13 @@ declare module "*.svg" {
   const src: string;
   export default src;
 }
+
+type PhoneState =
+  | "NOT_SET"
+  | "VERIFIED"
+  | "UNVERIFIED"
+  | "CODE_SENT"
+  | "CODE_EXPIRED"
+  | "INVALID_CODE"
+  | "LIMIT_EXCEEDED"
+  | "UNKNOWN";
