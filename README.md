@@ -10,4 +10,4 @@ This monorepo has two packages `/frontend` and `/backend`.
 ## Shutdown
 
 - Use `ctrl+c` to signal the terminal to shutdown the processes
-- If this doesn't work, teminate the terminal and run `npm run stop` to make sure all processes are stopped
+- If this doesn't work, teminate the terminal and run `npm run stop:ws` to make sure all processes are stopped (Windows version)
