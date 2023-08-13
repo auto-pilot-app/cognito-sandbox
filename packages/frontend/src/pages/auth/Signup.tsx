@@ -15,11 +15,11 @@ function Signup() {
     setLoading(true);
 
     const formData = new FormData(e.currentTarget);
-    const termsAccepted = formData.get("terms");
-    if (!termsAccepted) {
-      setLoading(false);
-      return alert("Must accept the terms");
-    }
+    // const termsAccepted = formData.get("terms");
+    // if (!termsAccepted) {
+    //   setLoading(false);
+    //   return alert("Must accept the terms");
+    // }
 
     const firstName = formData.get("firstName") as string;
     const lastName = formData.get("lastName") as string;
@@ -53,18 +53,25 @@ function Signup() {
       <form onSubmit={handleSubmit}>
         <div>
           <label htmlFor="firstName">First name</label>
-          <input type="text" name="firstName" id="firstName" />
+          <input type="text" name="firstName" id="firstName" required />
 
           <label htmlFor="lastName">Last name</label>
-          <input type="text" name="lastName" id="lastName" />
+          <input type="text" name="lastName" id="lastName" required />
 
           <label htmlFor="email">Email</label>
-          <input type="text" name="email" id="email" />
+          <input type="text" name="email" id="email" required />
 
           <label htmlFor="password">Password</label>
-          <input type="password" name="password" id="password" />
+          <input type="password" name="password" id="password" required />
 
-          <input type="checkbox" name="terms" id="terms" />
+          <input
+            type="checkbox"
+            name="terms"
+            id="terms"
+            required
+            onInvalid={(e) => e.currentTarget.setCustomValidity("Must accept terms")}
+            onInput={(e) => e.currentTarget.setCustomValidity("")}
+          />
           <label htmlFor="terms">Accept terms</label>
         </div>
         <div>

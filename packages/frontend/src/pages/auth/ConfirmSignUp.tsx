@@ -50,9 +50,9 @@ function ConfirmSignUp() {
       <form onSubmit={handleSubmit}>
         <div>
           <label htmlFor="email">Email</label>
-          <input type="text" defaultValue={initEmail} name="email" id="email" disabled={true} />
+          <input type="email" defaultValue={initEmail} name="email" id="email" disabled={true} required />
           <label htmlFor="code">Code</label>
-          <input type="text" name="code" id="code" />
+          <input type="text" name="code" id="code" required autoComplete="false" />
         </div>
         <div>
           <Link to="/login">

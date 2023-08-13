@@ -16,6 +16,7 @@ export const useCognitoSession = () => {
       await Auth.currentSession();
       setCognito({ authenticated: true, error: null });
     } catch (err) {
+      console.log(err);
       if (err !== "No current user") {
         await Auth.signOut();
         return setCognito({ authenticated: false, error: err.message });

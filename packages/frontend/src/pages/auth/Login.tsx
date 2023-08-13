@@ -54,9 +54,9 @@ function Login() {
       <form onSubmit={handleSubmit}>
         <div>
           <label htmlFor="email">Email</label>
-          <input type="text" defaultValue={initEmail} name="email" id="email" />
+          <input type="email" defaultValue={initEmail} name="email" id="email" required />
           <label htmlFor="password">Password</label>
-          <input type="password" name="password" id="password" />
+          <input type="password" name="password" id="password" required />
           <Link to="/forgot-password">forgot password?</Link>
         </div>
         <div>
