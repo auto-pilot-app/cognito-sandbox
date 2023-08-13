@@ -104,10 +104,6 @@ function Dashboard() {
 
   useEffect(() => {
     fetchUser();
-    (async () => {
-      const resp = await Auth.fetchDevices();
-      console.log(resp);
-    })();
   }, []);
 
   return (
